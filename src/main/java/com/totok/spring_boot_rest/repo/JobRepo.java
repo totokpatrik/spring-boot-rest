@@ -39,5 +39,15 @@ public class JobRepo {
 		jobs.add(job);
 		System.out.println(jobs);
 	}
+	
+	// method to return a single job
+	public JobPost getJob(int postId) {
+		for (JobPost jobPost : jobs) {
+			if (jobPost.getPostId() == postId) {
+				return jobPost;
+			}
+		}
+		return null;
+	}
 
 }
