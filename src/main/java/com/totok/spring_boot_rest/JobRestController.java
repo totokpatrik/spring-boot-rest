@@ -24,7 +24,7 @@ public class JobRestController {
 	@Autowired
 	private JobService jobService;
 	
-	@GetMapping("jobPosts")
+	@GetMapping(path="jobPosts", produces = {"application/json"})
 	public List<JobPost> getAllJobs() {
 		return jobService.GetAllJobs();
 	}
@@ -34,7 +34,7 @@ public class JobRestController {
 		return jobService.GetJob(postId);
 	}
 	
-	@PostMapping("jobPost")
+	@PostMapping(path="jobPost", consumes = {"application/xml"})
 	public JobPost addJob(@RequestBody JobPost jobPost) {
 		jobService.AddJob(jobPost);
 		return jobService.GetJob(jobPost.getPostId());
