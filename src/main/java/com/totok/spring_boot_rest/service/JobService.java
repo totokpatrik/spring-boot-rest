@@ -7,8 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.totok.spring_boot_rest.model.JobPost;
-import com.totok.spring_boot_rest.repo.JobRepo;
+import com.totok.spring_boot_rest.model.*;
+import com.totok.spring_boot_rest.repo.*;
 
 @Service
 public class JobService {
@@ -58,6 +58,10 @@ public class JobService {
 
 	public void load() {
 		repo.saveAll(jobs);
+	}
+
+	public List<JobPost> searchByKeyword(String keyword) {
+		return repo.findByPostProfileContainingOrPostDescContaining(keyword, keyword);
 	}
 
 }
