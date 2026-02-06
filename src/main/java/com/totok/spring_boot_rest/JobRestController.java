@@ -25,7 +25,7 @@ public class JobRestController {
 	private JobService jobService;
 	
 	@GetMapping(path="jobPosts", produces = {"application/json"})
-	public List<JobPost> getAllJobs() {
+	public List<JobPost> getAllJobs() throws Exception {
 		return jobService.GetAllJobs();
 	}
 	
@@ -34,7 +34,7 @@ public class JobRestController {
 		return jobService.GetJob(postId);
 	}
 	
-	@PostMapping(path="jobPost", consumes = {"application/xml"})
+	@PostMapping(path="jobPost", consumes = {"application/xml", "application/json"})
 	public JobPost addJob(@RequestBody JobPost jobPost) {
 		jobService.AddJob(jobPost);
 		return jobService.GetJob(jobPost.getPostId());

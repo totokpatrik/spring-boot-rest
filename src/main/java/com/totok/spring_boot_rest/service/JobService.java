@@ -39,8 +39,8 @@ public class JobService {
 		repo.save(jobPost);
 	}
 	
-	public List<JobPost> GetAllJobs() {
-		
+	public List<JobPost> GetAllJobs() throws Exception {
+		//throw new Exception("lofasz");
 		return repo.findAll();
 	}
 	
@@ -53,7 +53,7 @@ public class JobService {
 	}
 
 	public void DeleteJob(int postId) {
-		repo.delete(GetJob(postId));
+		repo.delete(repo.findById(postId).orElse(new JobPost()));
 	}
 
 	public void load() {
