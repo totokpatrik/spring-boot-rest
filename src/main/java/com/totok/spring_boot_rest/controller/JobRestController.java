@@ -1,4 +1,4 @@
-package com.totok.spring_boot_rest;
+package com.totok.spring_boot_rest.controller;
 
 import java.util.List;
 
